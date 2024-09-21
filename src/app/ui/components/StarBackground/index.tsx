@@ -3,6 +3,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { Container, ISourceOptions, MoveDirection, OutMode } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
+import './style.css';
 
 const StarBackground: React.FC = () => {
   const [init, setInit] = useState(false);
@@ -65,7 +66,7 @@ const StarBackground: React.FC = () => {
   if (init) {
     return (
       <>
-        <Particles
+        <Particles className="bg-particles"
           id="tsparticles"
           particlesLoaded={particlesLoaded}
           options={options}
