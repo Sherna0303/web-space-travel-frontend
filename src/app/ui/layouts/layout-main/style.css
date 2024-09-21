@@ -15,7 +15,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/path-to-your-background-stars-image.jpg");
     background-size: cover;
     background-position: center;
 }

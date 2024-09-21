@@ -4,5 +4,7 @@ import { AppRouter } from "./routes/routes";
 import './ui/styles/normalize.css'
 
 export const App = (): ReactElement => {
-  return <AppRouter />;
+  return <>
+  <AppRouter />
+  </>;
 };
