@@ -18,8 +18,8 @@
   }
   
   .accordion-button:not(.collapsed) {
-    background-color: #1a1a1a; /* Cambia el color cuando está activo */
-    color: #00d4ff; /* Cambia el texto cuando está activo */
+    background-color: #1a1a1a;
+    color: #78aeff;
     border-radius: 5px 5px 0 0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }

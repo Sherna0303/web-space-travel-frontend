@@ -1,7 +1,7 @@
 import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import { Container } from "react-bootstrap";
-import "./style.css"; // Archivo CSS personalizado
+import "./style.css";
 
 const FAQ: React.FC = () => {
   return (
