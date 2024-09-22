@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./style.css";
+import Icon from "../../elements/Icon/inde";
 
 const Header: React.FC = () => {
   return (
@@ -9,7 +10,9 @@ const Header: React.FC = () => {
       <Navbar expand="lg" variant="dark">
         <Container>
           <Navbar.Brand>
-            <div className="logo">MoonT</div>
+            <div className="logo">
+              <Icon size={30} color={"#ffff"} icon={"rocket-takeoff-fill"} />
+              MoonT</div>
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

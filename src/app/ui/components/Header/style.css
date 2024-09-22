@@ -5,6 +5,8 @@
 }
 
 .logo {
+    gap: 10px;
+    display: flex;
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
@@ -17,6 +19,6 @@
 }
 
 .nav-link:hover {
-    color: #cacaca;
+    color: #78aeff;
     text-decoration: none;
 }
