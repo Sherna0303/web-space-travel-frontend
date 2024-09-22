@@ -1,0 +1,50 @@
+.reviews-section {
+    color: white;
+    background-color: #78aeff13;
+    padding: 2rem;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.reviews-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #78aeff;
+}
+
+.review-card {
+    background-color: #1e1e3fa2;
+    border: none;
+    border-radius: 15px;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+}
+
+.review-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #f8f9fa;
+}
+
+.review-comment {
+    font-style: italic;
+    color: #c5c6e0;
+}
+
+.star-rating {
+    margin-top: 10px;
+}
+
+.star {
+    font-size: 1.5rem;
+}
+
+.text-warning.star {
+    color: #ffdf00;
+}

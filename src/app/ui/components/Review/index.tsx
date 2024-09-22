@@ -1,14 +1,13 @@
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import "./style.css";
 
-// Interfaz para definir las reseñas
 interface Review {
   name: string;
   comment: string;
   rating: number;
 }
 
-// Lista de reseñas de ejemplo
 const reviews: Review[] = [
   {
     name: "Juan Pérez",
@@ -33,12 +32,11 @@ const reviews: Review[] = [
   },
 ];
 
-// Componente para mostrar las estrellas según la valoración
 const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
   return (
-    <div>
+    <div className="star-rating">
       {Array.from({ length: 5 }, (_, index) => (
-        <span key={index} className="text-warning">
+        <span key={index} className="text-warning star">
           {index < rating ? "★" : "☆"}
         </span>
       ))}
@@ -48,15 +46,17 @@ const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
 
 const Reviews: React.FC = () => {
   return (
-    <section className="row col-9 my-5">
-      <h2 className="text-center mb-4">Reseñas de nuestros viajeros</h2>
+    <section className="row col-12 my-5 reviews-section">
+      <h2 className="text-center mb-4 reviews-title">
+        Reseñas de nuestros viajeros
+      </h2>
       <Row className="justify-content-center">
         {reviews.map((review, index) => (
           <Col key={index} md={6} lg={4} className="mb-4">
-            <Card className="h-100 shadow-sm">
-              <Card.Body>
-                <Card.Title>{review.name}</Card.Title>
-                <Card.Text>"{review.comment}"</Card.Text>
+            <Card className="h-100 review-card shadow-lg">
+              <Card.Body className="d-flex flex-column align-items-center">
+                <Card.Title className="review-name">{review.name}</Card.Title>
+                <Card.Text className="review-comment">"{review.comment}"</Card.Text>
                 <StarRating rating={review.rating} />
               </Card.Body>
             </Card>
