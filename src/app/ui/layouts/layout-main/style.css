@@ -10,7 +10,6 @@
 /* Estilos del contenido principal de la página */
 .content-wrapper {
     flex: 1;
-    padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 export const CardHome = (): ReactElement => {
   return (
     <>
-      <div className="row col-md-10 align-items-center containerCardHome">
+      <section className="row col-md-10 align-items-center containerCardHome">
         <div className="col-md-7 order-md-2">
           <h2 className="featurette-heading fw-* lh-2">
             ¿Has pensado en ir a la{" "}
@@ -36,7 +36,7 @@ export const CardHome = (): ReactElement => {
             />
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

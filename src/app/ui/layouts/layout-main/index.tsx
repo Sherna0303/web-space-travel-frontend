@@ -9,7 +9,7 @@ const MainLayout: React.FC = () => {
     <div className="layout-wrapper">
       <StarBackground/>
       <Header />
-      <main className="content-wrapper">
+      <main className="row col-12 content-wrapper">
         <Outlet />
       </main>
       <footer className="footer">
