@@ -30,6 +30,11 @@ const reviews: Review[] = [
     comment: "El paisaje lunar es asombroso, pero el viaje fue algo agotador.",
     rating: 3,
   },
+  {
+    name: "Sofía Pérez",
+    comment: "Muy bonito, experiencia inolvidable, muy buen servicio.",
+    rating: 5,
+  }
 ];
 
 const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
