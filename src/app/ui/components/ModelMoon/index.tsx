@@ -32,10 +32,10 @@ const InteractiveMoon = () => {
     <Container fluid className="my-5 py-5 text-light">
       <Row className="justify-content-center">
         <Col md={8} className="text-center">
-          <h1 className="display-4 mb-4">Explora la Luna</h1>
+          <h1 className="display-4 mb-4">Observa la Luna</h1>
           <p className="lead mb-5">
-            Descubre los lugares más fascinantes de la Luna antes de tu viaje.
-            Gira y explora nuestro modelo 3D interactivo.
+            Visualiza la Luna antes de tu viaje.
+            Gira y explora nuestro modelo 3D.
           </p>
         </Col>
       </Row>
