@@ -1,0 +1,19 @@
+.footer {
+    background-color: #0e0e0ed3;
+    color: #fff;
+    border-radius: 20px 20px 0 0;
+}
+
+.footer-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-icon:hover {
+    transform: scale(1.2);
+}
+
+.footer-text {
+    color: #aaa;
+}
