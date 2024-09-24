@@ -1,12 +1,21 @@
 .typing-effect-container {
     display: inline-flex;
-    font-size: 2rem;
+    font-size: 4rem;
     color: rgb(120, 174, 255);
     overflow: hidden;
     border-right: 0.15em solid white;
     white-space: nowrap;
     width: 6ch;
     animation: typing 4s steps(5, end) infinite, blink 0.75s step-end infinite;
+}
+
+.featurette-heading {
+    font-size: 4rem;
+    text-wrap: pretty;
+}
+
+.containerCardHome {
+    justify-content: space-between;
 }
 
 @keyframes typing {
@@ -43,7 +52,7 @@
 }
 
 .image-container img {
-    width: 100%;
+    width: 85%;
 }
 
 .image-container::after {
@@ -57,9 +66,34 @@
     background: linear-gradient(to top right, rgba(0, 0, 0, 1) 40%, rgba(255, 255, 255, 0) 60%)
 }
 
+.lead {
+    text-wrap: pretty;
+}
+
+@media (max-width: 1400px) { 
+    .containerCardHome {
+        margin-top: 1rem !important;
+        margin-bottom: 8rem !important;
+    }
+
+    .typing-effect-container {
+        font-size: 3.2rem;
+    }
+    
+    .featurette-heading {
+        font-size: 3.2rem;
+    }
+
+}
+
 @media (min-width: 1400px) { 
     .containerCardHome {
         margin-top: 8rem !important;
         margin-bottom: 8rem !important;
     }
- }
+
+    .image-container img {
+        width: 90%;
+    }
+
+}

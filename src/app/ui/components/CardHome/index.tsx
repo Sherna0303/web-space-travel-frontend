@@ -4,15 +4,15 @@ import Button from "react-bootstrap/Button";
 
 export const CardHome = (): ReactElement => {
   return (
-    <article className="row my-5 py-5 col-md-10 align-items-center containerCardHome">
+    <article className="row my-5 py-5 align-items-center  containerCardHome">
       <div className="col-md-7 order-md-2">
-        <h2 className="featurette-heading fw-* lh-2">
+        <h2 className="col-10 featurette-heading fw-* lh-2 my-3">
           ¿Has pensado en ir a la{" "}
           <span className="typing-effect-container">
             <span className="typed-text">LUNA?</span>
           </span>
         </h2>
-        <p className="lead">
+        <p className="lead my-4">
           Nuestro programa liderado por{" "}
           <span className="spanMoonT">MoonT</span> busca llevarte a ti y a tu
           familia al increíble satélite natural que rodea día y noche nuestro

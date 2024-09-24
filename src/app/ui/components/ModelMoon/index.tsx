@@ -45,7 +45,7 @@ const InteractiveMoon = () => {
             <div className="moon-container">
               <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
                 <Suspense fallback={null}>
-                  <ambientLight intensity={0.5} />
+                  <ambientLight intensity={0.9} />
                   <directionalLight intensity={1} position={[5, 5, 5]} />
                   <MoonModel />
                   <OrbitControls enableZoom={false} />
