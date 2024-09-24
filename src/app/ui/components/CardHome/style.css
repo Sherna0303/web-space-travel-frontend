@@ -1,46 +1,28 @@
-/*
-.containerCardHome {
-    background-color: #ffffff1f ;
-    backdrop-filter: blur(1px);
-    border-radius: 15px;
-    padding: 20px;
-}
-
-*/
-
-/* src/components/TextTypingEffect.css */
 .typing-effect-container {
     display: inline-flex;
     font-size: 2rem;
     color: rgb(120, 174, 255);
     overflow: hidden;
     border-right: 0.15em solid white;
-    /* Cursor estilo */
     white-space: nowrap;
     width: 6ch;
     animation: typing 4s steps(5, end) infinite, blink 0.75s step-end infinite;
-    /* Se repite infinitamente */
 }
 
-/* Animación de escritura y borrado */
 @keyframes typing {
     0% {
         width: 0;
-        /* Comienza sin caracteres */
     }
 
     50% {
         width: 6ch;
-        /* Se escribe la palabra completa */
     }
 
     100% {
         width: 0;
-        /* Se borra la palabra */
     }
 }
 
-/* Animación de parpadeo del cursor */
 @keyframes blink {
     50% {
         border-color: transparent;
@@ -74,3 +56,10 @@
     width: 30%;
     background: linear-gradient(to top right, rgba(0, 0, 0, 1) 40%, rgba(255, 255, 255, 0) 60%)
 }
+
+@media (min-width: 1400px) { 
+    .containerCardHome {
+        margin-top: 8rem !important;
+        margin-bottom: 8rem !important;
+    }
+ }
