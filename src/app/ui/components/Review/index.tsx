@@ -51,11 +51,11 @@ const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
 
 const Reviews: React.FC = () => {
   return (
-    <section className="row col-12 my-5 reviews-section justify-content-center">
+    <section className="row my-5 reviews-section justify-content-center">
       <h2 className="text-center mb-4 reviews-title">
         Reseñas de nuestros viajeros
       </h2>
-      <Row className="row col-9 justify-content-center">
+      <Row className="col-12 justify-content-center">
         {reviews.map((review, index) => (
           <Col key={index} md={6} lg={4} className="mb-4">
             <Card className="h-100 review-card shadow-lg">

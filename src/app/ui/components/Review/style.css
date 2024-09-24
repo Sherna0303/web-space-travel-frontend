@@ -1,9 +1,10 @@
 .reviews-section {
+    text-align: center;
     color: white;
     background-color: #48484929;
-    padding: 2rem;
     padding-top: 100px;
     padding-bottom: 100px;
+    border-radius: 40px;
 }
 
 .reviews-title {
