@@ -10,7 +10,7 @@ const MoonModel = () => {
 
   const textureLoader = new THREE.TextureLoader();
   const moonTexture = textureLoader.load(
-    "./moon/textures/Material.002_diffuse.jpeg",
+    "./moon/textures/Material.002_diffuse.webp",
   );
 
   useFrame(() => {
