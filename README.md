@@ -1,50 +1,63 @@
-# React + TypeScript + Vite
+# Space Travel - MoonT 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenido a **MoonT**, un sitio web dedicado a los viajes espaciales a la Luna. Este proyecto está diseñado con una temática espacial, con la finalidad de representar la inmensidad del espacio, e incluye un catálogo de viajes, un apartado de contacto, un home interactivo.
 
-Currently, two official plugins are available:
+## 🎯 Objetivo del Proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+El objetivo de este proyecto es crear una experiencia web que permita a los usuarios explorar planes de viajes a la Luna.
 
-## Expanding the ESLint configuration
+## 🚀 Tecnologías Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+El desarrollo de este proyecto utiliza las siguientes tecnologías y herramientas:
 
-- Configure the top-level `parserOptions` property like this:
+- **Frontend**
+  - **React**
+  - **TypeScript**
+  - **React-Bootstrap**
+  - **Vite**
+  - **CSS**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🏗️ Estructura del Proyecto
+
+El proyecto está organizado de la siguiente manera para mantener la escalabilidad y la modularidad:
+
+```plaintext
+📂 src
+└── 📂 app
+    ├── 📂 core
+    ├── 📂 pages
+    ├── 📂 routes
+    ├── 📂 ui
+    │   ├── 📂 components 
+    │   ├── 📂 elements      
+    │   ├── 📂 forms          
+    │   ├── 📂 layouts         
+    │   ├── 📂 style           
+    └── 📂 assets      
+ ```       
+
+## 📑 Páginas del Proyecto
+
+- **Home**: Página de inicio con un diseño minimalista que presenta la temática de viajes espaciales.
+- **Catálogo de Viajes**: Muestra un catálogo de diferentes viajes a la Luna.
+- **Contacto**: Incluye un formulario detallado para que los usuarios puedan comunicarse y solicitar más información.
+
+## ⚙️ Instrucciones para Ejecutar el Proyecto Localmente
+
+Para ejecutar el proyecto en tu máquina local, sigue estos pasos:
+
+### 1. Clonar el Repositorio
+
+```bash
+git clone https://github.com/Sherna0303/web-space-travel-frontend.git
 ```
+### 2. Instalar Dependencias
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+```bash
+npm install
+```
+### 3. Ejecutar el Proyecto
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm run dev
 ```
