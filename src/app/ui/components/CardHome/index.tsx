@@ -1,8 +1,6 @@
 import { ReactElement } from "react";
 import "./style.css";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { Nav } from "react-bootstrap";
 
 export const CardHome = (): ReactElement => {
   return (
@@ -30,7 +28,7 @@ export const CardHome = (): ReactElement => {
       <div className="col-md-5 order-md-1">
         <figure className="image-container">
           <img
-            src="/src/assets/images/coheteHome.webp"
+            src="./src/assets/images/coheteHome.webp"
             className="imgCohete"
             alt="Imagen de un cohete espacial"
           />

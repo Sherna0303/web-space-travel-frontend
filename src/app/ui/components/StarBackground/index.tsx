@@ -1,4 +1,3 @@
-// src/components/StarBackground.tsx
 import React, { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { Container, ISourceOptions, MoveDirection, OutMode } from "@tsparticles/engine";

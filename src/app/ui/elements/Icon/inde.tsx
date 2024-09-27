@@ -12,7 +12,7 @@ const Icon = ({ size, color, icon }: IconProps): ReactElement => {
     height: `${size}px`,
     width: `${size}px`,
     backgroundColor: color,
-    WebkitMaskImage: `url(/src/assets/icon/${icon}.svg)`,
+    WebkitMaskImage: `url(./src/assets/icon/${icon}.svg)`,
   };
 
   return <i className="icon" style={iconStyle} aria-hidden="true" />;
