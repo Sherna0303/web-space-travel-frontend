@@ -45,9 +45,9 @@ export const FormContact = () => {
                 <Form.Label>Plan de viaje interesado</Form.Label>
                 <Form.Control as="select">
                   <option>Seleccione un plan</option>
-                  <option>Viaje express a la Luna</option>
-                  <option>Estancia lunar de 7 días</option>
-                  <option>Exploración lunar completa</option>
+                  <option>Conociendo a la Luna</option>
+                  <option>Vuelta a la Luna</option>
+                  <option>Super Espacial</option>
                 </Form.Control>
               </Form.Group>
             </Col>

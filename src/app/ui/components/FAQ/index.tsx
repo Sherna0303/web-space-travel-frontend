@@ -32,7 +32,7 @@ const FAQ: React.FC = () => {
         <Accordion.Item eventKey="3">
           <Accordion.Header>¿Cuál es el costo del viaje?</Accordion.Header>
           <Accordion.Body>
-            Los precios varían dependiendo del tipo de experiencia que elijas. Tenemos opciones estándar y de lujo. Te invitamos a consultar nuestra sección de precios para más detalles.
+            Los precios varían dependiendo del tipo de experiencia que elijas. Tenemos tres opciones: Conociendo a la luna, vuelta a la luna y super espacial. Te invitamos a consultar nuestra sección de precios para más detalles.
           </Accordion.Body>
         </Accordion.Item>
 
