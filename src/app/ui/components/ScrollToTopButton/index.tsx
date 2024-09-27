@@ -37,7 +37,7 @@ export const ScrollToTopButton = () => {
           aria-label="Scroll to Top"
         >
           <img
-            src={`./src/assets/icon/${launch ? "rocket-takeoff-fill.svg" : "arrow-up.svg"}`}
+            src={`src/assets/icon/${launch ? "rocket-takeoff-fill.svg" : "arrow-up.svg"}`}
             alt="Scroll to Top"
             className="rocket-icon"
           />

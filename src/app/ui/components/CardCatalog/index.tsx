@@ -14,21 +14,21 @@ const trips: Trip[] = [
     description:
       "Disfruta de un breve viaje a la órbita lunar con vistas impresionantes.",
     price: "30,000,000 COP",
-    imageUrl: "./src/assets/images/bronce.webp",
+    imageUrl: "src/assets/images/bronce.webp",
   },
   {
     title: "Vuelta a la Luna",
     description:
       "Explora la cara oculta de la Luna y contempla sus misteriosos paisajes.",
     price: "45,000,000 COP",
-    imageUrl: "./src/assets/images/plata.webp",
+    imageUrl: "src/assets/images/plata.webp",
   },
   {
     title: "Super Espacial",
     description:
       "Visita el famoso Mar de la Tranquilidad, el lugar de aterrizaje del Apolo 11 y disfruta de nuestros campamentos lunares de lujo.",
     price: "75,000,000 COP",
-    imageUrl: "./src/assets/images/oro.webp",
+    imageUrl: "src/assets/images/oro.webp",
   },
 ];
 
