@@ -1,4 +1,4 @@
-import { Form, Button, Col, Row } from "react-bootstrap";
+import { Form, Col, Row } from "react-bootstrap";
 import "./style.css";
 
 export const FormContact = () => {
