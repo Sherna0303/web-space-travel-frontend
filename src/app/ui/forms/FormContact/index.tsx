@@ -29,7 +29,10 @@ export const FormContact = () => {
             <Col md={6} className="mb-4">
               <Form.Group controlId="formPhone">
                 <Form.Label>Número de teléfono</Form.Label>
-                <Form.Control type="text" placeholder="Ingresa tu número de teléfono" />
+                <Form.Control
+                  type="text"
+                  placeholder="Ingresa tu número de teléfono"
+                />
               </Form.Group>
             </Col>
             <Col md={6} className="mb-4">
@@ -56,14 +59,18 @@ export const FormContact = () => {
             <Col md={12} className="mb-4">
               <Form.Group controlId="formMessage">
                 <Form.Label>Mensaje</Form.Label>
-                <Form.Control as="textarea" rows={5} placeholder="Escribe tu mensaje aquí..." />
+                <Form.Control
+                  as="textarea"
+                  rows={5}
+                  placeholder="Escribe tu mensaje aquí..."
+                />
               </Form.Group>
             </Col>
           </Row>
           <div className="text-center">
-            <Button variant="primary" size="lg" type="submit">
+            <button className="btn btn-primary btn-lg" type="submit">
               Enviar
-            </Button>
+            </button>
           </div>
         </Form>
       </div>
