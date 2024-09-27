@@ -14,7 +14,7 @@ export const Footer = () => {
             aria-label="GitHub"
             className="mx-3"
           >
-            <img src="/src/assets/icon/github.svg" alt="GitHub" className="footer-icon" />
+            <img src="main/src/assets/icon/github.svg" alt="GitHub" className="footer-icon" />
           </a>
           <a
             href="https://www.linkedin.com/"
@@ -23,7 +23,7 @@ export const Footer = () => {
             aria-label="LinkedIn"
             className="mx-3"
           >
-            <img src="/src/assets/icon/linkedin.svg" alt="LinkedIn" className="footer-icon" />
+            <img src="main/src/assets/icon/linkedin.svg" alt="LinkedIn" className="footer-icon" />
           </a>
           <a
             href="https://twitter.com/"
@@ -32,7 +32,7 @@ export const Footer = () => {
             aria-label="Twitter"
             className="mx-3"
           >
-            <img src="/src/assets/icon/twitter-x.svg" alt="Twitter" className="footer-icon" />
+            <img src="main/src/assets/icon/twitter-x.svg" alt="Twitter" className="footer-icon" />
           </a>
         </div>
 
