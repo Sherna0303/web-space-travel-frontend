@@ -27,13 +27,12 @@ El proyecto está organizado de la siguiente manera para mantener la escalabilid
     ├── 📂 core
     ├── 📂 pages
     ├── 📂 routes
-    ├── 📂 ui
-    │   ├── 📂 components 
-    │   ├── 📂 elements      
-    │   ├── 📂 forms          
-    │   ├── 📂 layouts         
-    │   ├── 📂 style           
-    └── 📂 assets      
+    └── 📂 ui
+        ├── 📂 components 
+        ├── 📂 elements      
+        ├── 📂 forms          
+        ├── 📂 layouts         
+        └── 📂 style               
  ```       
 
 ## 📑 Páginas del Proyecto
