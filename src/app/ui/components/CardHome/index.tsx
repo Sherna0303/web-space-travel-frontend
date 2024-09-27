@@ -1,6 +1,8 @@
 import { ReactElement } from "react";
 import "./style.css";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+import { Nav } from "react-bootstrap";
 
 export const CardHome = (): ReactElement => {
   return (
@@ -13,17 +15,17 @@ export const CardHome = (): ReactElement => {
           </span>
         </h2>
         <p className="lead my-4">
-          Nuestro programa liderado por{" "}
-          <span className="spanMoonT">MoonT</span> busca llevarte a ti y a tu
-          familia al increíble satélite natural que rodea día y noche nuestro
-          planeta tierra. ¿No sería increíble ver la tierra desde otra
-          perspectiva? Tal vez suene algo imposible, pero ya no más. Ahora
-          disponemos de diferentes planes, los cuales son totalmente accesibles
-          para cada persona en el mundo. ¿Qué estás esperando para reservar?
+          Nuestro programa liderado por <span className="spanMoonT">MoonT</span>{" "}
+          busca llevarte a ti y a tu familia al increíble satélite natural que
+          rodea día y noche nuestro planeta tierra. ¿No sería increíble ver la
+          tierra desde otra perspectiva? Tal vez suene algo imposible, pero ya
+          no más. Ahora disponemos de diferentes planes, los cuales son
+          totalmente accesibles para cada persona en el mundo. ¿Qué estás
+          esperando para reservar?
         </p>
-        <Button variant="outline-primary" size="lg">
+        <Link to="/catalog" className="btn btn-outline-primary btn-lg">
           Reserva aquí
-        </Button>
+        </Link>
       </div>
       <div className="col-md-5 order-md-1">
         <figure className="image-container">
