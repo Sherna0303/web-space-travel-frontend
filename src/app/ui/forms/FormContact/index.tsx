@@ -3,7 +3,7 @@ import "./style.css";
 
 export const FormContact = () => {
   return (
-    <section className="contact-section py-5">
+    <section className="contact-section py-3">
       <div className="container">
         <h2 className="text-center mb-4">Contacto</h2>
         <p className="text-center mb-5">
