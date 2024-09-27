@@ -19,3 +19,19 @@
     color: white;
     font-size: 0.9rem;
 }
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #78aeff; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #feffffd0;
+}
