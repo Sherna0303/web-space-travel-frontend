@@ -30,7 +30,7 @@ export const SidebarAdmin = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="requests" className="nav-link-admin">
+            <Link to="/admin/requests" className="nav-link-admin">
               <Icon size={30} color={"#ffff"} icon={"envelope"} />
               <span className={sidebarOpen ? "" : "span-hide"}>Requests</span>
             </Link>
