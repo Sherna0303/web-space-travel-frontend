@@ -2,25 +2,15 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 import Icon from "../../elements/Icon/inde";
-
-interface Solicitud {
-  id: string;
-  nombre: string;
-  email: string;
-  telefono: string;
-  pais: string;
-  plan: string;
-}
+import { RequestModel } from "../../../core/models/requests.model";
+import { getRequestsService } from "../../../core/services/getRequests.service";
 
 export const Dashboard = () => {
-  const [requests, setRequests] = useState<Solicitud[]>([]);
+  const [requests, setRequests] = useState<RequestModel[]>([]);
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   useEffect(() => {
-    const data = localStorage.getItem("requests");
-    if (data) {
-      setRequests(JSON.parse(data));
-    }
+    setRequests(getRequestsService());
   }, []);
 
   const numRequests = requests.length;
@@ -77,8 +67,8 @@ export const Dashboard = () => {
           <div className="stat-card">
             <h3>Nombres Registrados</h3>
             <ul>
-              {requests.map((sol) => (
-                <li key={sol.id}>{sol.nombre}</li>
+              {requests.map((req, index) => (
+                <li key={index}>{req.nombre}</li>
               ))}
             </ul>
           </div>
