@@ -22,3 +22,19 @@
     color: #78aeff;
     text-decoration: none;
 }
+
+.admin-link {
+    background-color: #0079be;
+    border-radius: 20px;
+}
+
+.admin-link:hover {
+    background-color: #005281;
+    color: white;
+}
+
+@media (max-width: 991px) {
+    .admin-link {
+        background-color: transparent;
+    }
+}
