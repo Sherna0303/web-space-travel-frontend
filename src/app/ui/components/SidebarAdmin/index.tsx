@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 export const SidebarAdmin = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <aside

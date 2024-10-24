@@ -16,21 +16,20 @@ export const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-
-      <SidebarAdmin/>
+      <SidebarAdmin />
 
       <main className="dashboard-content">
         <h2 className="glow-text">Bienvenido al Dashboard</h2>
         <div className="stats">
-          <div className="stat-card">
+          <div className="stat-card stat-num">
+            <p className="stat-num-requests">{numRequests}</p>
             <h3>Total de Solicitudes</h3>
-            <p>{numRequests}</p>
           </div>
           <div className="stat-card">
-            <h3>Nombres Registrados</h3>
+            <h3 className="stat-title-requests">Ultimas Solicitudes</h3>
             <ul>
-              {requests.map((req, index) => (
-                <li key={index}>{req.nombre}</li>
+              {requests.slice(-3).map((request, index) => (
+                <li key={index}>{request.nombre}</li>
               ))}
             </ul>
           </div>

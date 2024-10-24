@@ -10,10 +10,6 @@
     transition: margin-left 0.3s;
 }
 
-.sidebar.closed+.dashboard-content {
-    margin-left: 0px;
-}
-
 .stats {
     display: flex;
     gap: 20px;
@@ -28,6 +24,21 @@
     flex: 1;
 }
 
+.stat-title-requests {
+    color: #78aeff;
+}
+
+.stat-num {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.stat-num-requests {
+    font-size: 4rem;
+    margin: 0;
+}
+
+
 .span-hide {
     display: none;
 }
@@ -36,24 +47,4 @@
     text-align: center;
     color: #fff;
     font-size: 36px;
-}
-
-@media (max-width: 1400px) {
-    .dashboard-content {
-        margin-left: 140px;
-    }
-
-    .sidebar.closed+.dashboard-content {
-        margin-left: 0px;
-    }
-}
-
-@media (min-width: 1400px) {
-    .dashboard-content {
-        margin-left: -60px;
-    }
-
-    .sidebar.closed+.dashboard-content {
-        margin-left: -200px;
-    }
 }
