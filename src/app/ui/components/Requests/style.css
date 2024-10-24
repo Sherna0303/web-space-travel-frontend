@@ -1,0 +1,103 @@
+.requests-section {
+    background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+    min-height: 100vh;
+    padding-top: 50px;
+    color: #e0e0e0;
+}
+
+.table {
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+}
+
+.table thead th {
+    background: rgba(65, 65, 65, 0.199);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 12px;
+    border: none;
+}
+
+.table tbody {
+    border-color: #0d0d0d;
+}
+
+.table tbody td {
+    padding: 15px;
+    border-top: none;
+    color: #e0e0e0;
+}
+
+.table-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn {
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-outline-light {
+    border-color: #fff;
+    color: #fff;
+}
+
+.btn-outline-light:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.modal-content {
+    background-color: #121212;
+    color: #e0e0e0;
+    border-radius: 10px;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.link-message {
+    color: #00bfff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.link-message:hover{
+    text-decoration: underline;
+}
+
+.contact-form .form-label {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.edit-form .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.edit-form .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    outline: none;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+.edit-form select.form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+}
