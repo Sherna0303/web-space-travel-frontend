@@ -1,7 +1,7 @@
 import { RequestModel } from "../models/requests.model";
 import { StorageService } from "./general/storage.service";
 
-export const saveRequestService = (data: RequestModel): Boolean => {
+export const SaveRequestService = (data: RequestModel): Boolean => {
 
     const storageService = new StorageService();
 
