@@ -28,13 +28,13 @@ export const Dashboard = () => {
         </button>
         <div className="container-links">
           {sidebarOpen ? (
-            <h3 className="text-center">MoonT Admin</h3>
+            <h3 className="title-sidebar text-center">MoonT Admin</h3>
           ) : (
             <Icon size={30} color={"#00bfff"} icon={"rocket-takeoff-fill"} />
           )}
           <ul className="nav flex-column">
             <li className="nav-item">
-              <Link to="/admin/dashboard" className="nav-link">
+              <Link to="/admin/dashboard" className="nav-link-admin">
                 <Icon size={30} color={"#ffff"} icon={"speedometer2"} />
                 <span className={sidebarOpen ? "" : "span-hide"}>
                   Dashboard
@@ -42,13 +42,13 @@ export const Dashboard = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="requests" className="nav-link">
+              <Link to="requests" className="nav-link-admin">
                 <Icon size={30} color={"#ffff"} icon={"envelope"} />
                 <span className={sidebarOpen ? "" : "span-hide"}>Requests</span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/" className="nav-link">
+              <Link to="/" className="nav-link-admin">
                 <Icon size={30} color={"#ffff"} icon={"box-arrow-left"} />
                 <span className={sidebarOpen ? "" : "span-hide"}>Exit</span>
               </Link>
