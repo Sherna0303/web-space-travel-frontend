@@ -5,6 +5,7 @@ import { SidebarAdmin } from "../SidebarAdmin";
 import { GetRequestsService } from "../../../core/services/getRequests.service";
 import { EditRequestService } from "../../../core/services/editRequets.service";
 import "./style.css";
+import Icon from "../../elements/Icon/inde";
 
 export const Requests = () => {
   const [requests, setRequests] = useState<RequestModel[]>([]);
@@ -17,6 +18,10 @@ export const Requests = () => {
   const [deleteIndex, setDeleteIndex] = useState<number | null>(null);
   const [showMessageModal, setShowMessageModal] = useState(false);
   const [messageToShow, setMessageToShow] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [search, setSearch] = useState(false);
+  const [filteredRequests, setFilteredRequests] =
+    useState<RequestModel[]>(requests);
 
   useEffect(() => {
     setRequests(GetRequestsService());
@@ -30,6 +35,7 @@ export const Requests = () => {
     if (deleteIndex !== null) {
       const updatedRequests = requests.filter((_, i) => i !== deleteIndex);
       setRequests(updatedRequests);
+      setFilteredRequests(updatedRequests);
       saveToLocalStorage(updatedRequests);
       setShowConfirmModal(false);
     }
@@ -41,8 +47,8 @@ export const Requests = () => {
   };
 
   const handleEdit = (index: number) => {
-    setCurrentRequest(requests[index]);
-    setEditedData(requests[index]);
+    setCurrentRequest(filteredRequests[index]);
+    setEditedData(filteredRequests[index]);
     setShowModal(true);
   };
 
@@ -64,6 +70,19 @@ export const Requests = () => {
     }
   };
 
+  useEffect(() => {
+    const results = requests.filter(
+      (request) =>
+        request.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        request.email.toLowerCase().includes(searchTerm.toLowerCase()),
+    );
+    setFilteredRequests(results);
+  }, [searchTerm, requests]);
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
   const handleShowMessage = (mensaje: string) => {
     setMessageToShow(mensaje);
     setShowMessageModal(true);
@@ -74,8 +93,26 @@ export const Requests = () => {
       <section className="requests-section py-5 ">
         <div className="container">
           <SidebarAdmin />
-          <h2 className="text-center mb-4">Solicitudes</h2>
-          {requests.length === 0 ? (
+
+          <div className="container-search">
+            <h2 className="text-center">Solicitudes</h2>
+
+            <input
+              type="text"
+              placeholder="Buscar por nombre o email"
+              className={`form-search ${search ? "" : "hidden-search"}`}
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <div
+              className="button-search"
+              onClick={() => setSearch(!search)}
+            >
+              <Icon size={30} color={"#ffff"} icon={"search"} />
+            </div>
+          </div>
+
+          {filteredRequests.length === 0 ? (
             <p className="text-center">No hay solicitudes registradas.</p>
           ) : (
             <Table bordered hover variant="dark" responsive>
@@ -91,7 +128,7 @@ export const Requests = () => {
                 </tr>
               </thead>
               <tbody>
-                {requests.map((request, index) => (
+                {filteredRequests.map((request, index) => (
                   <tr key={index}>
                     <td>{request.nombre}</td>
                     <td>{request.email}</td>
