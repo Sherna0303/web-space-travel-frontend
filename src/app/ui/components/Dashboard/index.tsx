@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import "./style.css";
 
 import { RequestModel } from "../../../core/models/requests.model";
-import { getRequestsService } from "../../../core/services/getRequests.service";
+import { GetRequestsService } from "../../../core/services/getRequests.service";
 import { SidebarAdmin } from "../SidebarAdmin";
 
 export const Dashboard = () => {
   const [requests, setRequests] = useState<RequestModel[]>([]);
 
   useEffect(() => {
-    setRequests(getRequestsService());
+    setRequests(GetRequestsService());
   }, []);
 
   const numRequests = requests.length;

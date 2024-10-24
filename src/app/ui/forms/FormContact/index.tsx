@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Form, Col, Row } from "react-bootstrap";
 import "./style.css";
 import { RequestModel } from "../../../core/models/requests.model";
-import { saveRequestService } from "../../../core/services/saveRequest.service";
+import { SaveRequestService } from "../../../core/services/saveRequest.service";
 
 export const FormContact = () => {
   const [formData, setFormData] = useState<RequestModel>({
@@ -32,7 +32,7 @@ export const FormContact = () => {
       return;
     }
 
-    setErrorSave(saveRequestService(formData));
+    setErrorSave(SaveRequestService(formData));
 
     if (!errorSave) {
       alert("¡Formulario enviado exitosamente!");
