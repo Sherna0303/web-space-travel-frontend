@@ -45,7 +45,7 @@ export const Requests = () => {
       setFilteredRequests(updatedRequests);
       saveToLocalStorage(updatedRequests);
       setShowConfirmModal(false);
-      handlePageChange(currentPage !== 0 ? currentPage - 1 : 1);
+      handlePageChange(currentPage === 1 ? 1 : currentPage - 1);
     }
   };
 
