@@ -28,9 +28,12 @@ export const Dashboard = () => {
           <div className="stat-card">
             <h3 className="stat-title-requests">Ultimas Solicitudes</h3>
             <ul>
-              {requests.slice(-3).map((request, index) => (
-                <li key={index}>{request.nombre}</li>
-              ))}
+              {requests
+                .slice(-3)
+                .reverse()
+                .map((request) => (
+                  <li key={request.id}>{request.nombre}</li>
+                ))}
             </ul>
           </div>
         </div>
