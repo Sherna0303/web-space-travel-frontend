@@ -6,6 +6,7 @@ import { GetRequestsService } from "../../../core/services/getRequests.service";
 import { EditRequestService } from "../../../core/services/editRequets.service";
 import "./style.css";
 import Icon from "../../elements/Icon/inde";
+import countries from "world-countries";
 
 export const Requests = () => {
   const [requests, setRequests] = useState<RequestModel[]>([]);
@@ -22,9 +23,10 @@ export const Requests = () => {
   const [search, setSearch] = useState(false);
   const [filteredRequests, setFilteredRequests] =
     useState<RequestModel[]>(requests);
-
+  const countryNames = countries.map((country) => country.name.common).sort();
+  const [errors, setErrors] = useState<any>({});
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 1;
+  const itemsPerPage = 8;
 
   useEffect(() => {
     setRequests(GetRequestsService());
@@ -61,8 +63,9 @@ export const Requests = () => {
     }
   };
 
-  const handleSaveChanges = () => {
-    if (editedData && currentRequest) {
+  const handleSaveChanges = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (editedData && currentRequest && validate(editedData)) {
       const updatedRequests = requests.map((request) =>
         request.id === currentRequest.id ? editedData : request,
       );
@@ -110,6 +113,26 @@ export const Requests = () => {
     setCurrentPage(pageNumber);
   };
 
+  const validate = (data: RequestModel) => {
+    const newErrors: any = {};
+
+    if (!/^[a-zA-Z\s]+$/.test(data.nombre)) {
+      newErrors.nombre = "El nombre solo debe contener letras.";
+    }
+    if (!/^\d+$/.test(data.telefono)) {
+      newErrors.telefono = "El teléfono solo debe contener números.";
+    }
+    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(data.email)) {
+      newErrors.email = "Ingresa un correo electrónico válido.";
+    }
+    if (data.pais === "") {
+      newErrors.pais = "Por favor, selecciona un país.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   return (
     <>
       <section className="requests-section py-5 ">
@@ -126,7 +149,10 @@ export const Requests = () => {
               value={searchTerm}
               onChange={handleSearchChange}
             />
-            <div className={`button-search ${currentItems.length !== 0 ? "" : "hidden-search"}`}onClick={() => setSearch(!search)}>
+            <div
+              className={`button-search ${currentItems.length !== 0 ? "" : "hidden-search"}`}
+              onClick={() => setSearch(!search)}
+            >
               <Icon size={30} color={"#ffff"} icon={"search"} />
             </div>
           </div>
@@ -230,7 +256,11 @@ export const Requests = () => {
                           type="text"
                           value={editedData.nombre}
                           onChange={handleModalChange}
+                          isInvalid={!!errors.nombre}
                         />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.nombre}
+                        </Form.Control.Feedback>
                       </Form.Group>
                     </Col>
                     <Col md={6} className="mb-3">
@@ -240,7 +270,11 @@ export const Requests = () => {
                           type="email"
                           value={editedData.email}
                           onChange={handleModalChange}
+                          isInvalid={!!errors.email}
                         />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.email}
+                        </Form.Control.Feedback>
                       </Form.Group>
                     </Col>
                   </Row>
@@ -252,17 +286,32 @@ export const Requests = () => {
                           type="text"
                           value={editedData.telefono}
                           onChange={handleModalChange}
+                          isInvalid={!!errors.telefono}
                         />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.telefono}
+                        </Form.Control.Feedback>
                       </Form.Group>
                     </Col>
                     <Col md={6} className="mb-3">
                       <Form.Group controlId="pais">
                         <Form.Label>País</Form.Label>
                         <Form.Control
-                          type="text"
+                          as="select"
                           value={editedData.pais}
                           onChange={handleModalChange}
-                        />
+                          isInvalid={!!errors.pais}
+                        >
+                          <option value="">Seleccione un país</option>
+                          {countryNames.map((pais) => (
+                            <option key={pais} value={pais}>
+                              {pais}
+                            </option>
+                          ))}
+                        </Form.Control>
+                        <Form.Control.Feedback type="invalid">
+                          {errors.pais}
+                        </Form.Control.Feedback>
                       </Form.Group>
                     </Col>
                   </Row>

@@ -4,6 +4,7 @@ import "./style.css";
 import { RequestModel } from "../../../core/models/requests.model";
 import { SaveRequestService } from "../../../core/services/saveRequest.service";
 import { GetRequestsService } from "../../../core/services/getRequests.service";
+import countries from "world-countries";
 
 export const FormContact = () => {
   const [formData, setFormData] = useState<RequestModel>({
@@ -19,6 +20,8 @@ export const FormContact = () => {
   const [errors, setErrors] = useState<any>({});
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
+  const countryNames = countries.map((country) => country.name.common).sort();
+
   const validate = () => {
     const newErrors: any = {};
 
@@ -28,10 +31,14 @@ export const FormContact = () => {
     if (!/^\d+$/.test(formData.telefono)) {
       newErrors.telefono = "El teléfono solo debe contener números.";
     }
-    if (
-      !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email)
-    ) {
+    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email)) {
       newErrors.email = "Ingresa un correo electrónico válido.";
+    }
+    if (formData.pais === "") {
+      newErrors.pais = "Por favor, selecciona un país.";
+    }
+    if (formData.plan === "") {
+      newErrors.plan = "Por favor, selecciona un plan.";
     }
     if (Object.values(formData).some((value) => value === "")) {
       newErrors.general = "Por favor, completa todos los campos.";
@@ -44,7 +51,7 @@ export const FormContact = () => {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    >,
   ) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
@@ -62,7 +69,7 @@ export const FormContact = () => {
     formData.id = numID;
 
     const saveSuccessful = SaveRequestService(formData);
-    console.log(saveSuccessful)
+    console.log(saveSuccessful);
 
     if (saveSuccessful) {
       setSuccessMessage("¡Formulario enviado exitosamente!");
@@ -145,11 +152,21 @@ export const FormContact = () => {
               <Form.Group controlId="pais">
                 <Form.Label>País</Form.Label>
                 <Form.Control
-                  type="text"
-                  placeholder="Ingresa tu país"
+                  as="select"
                   value={formData.pais}
                   onChange={handleChange}
-                />
+                  isInvalid={!!errors.pais}
+                >
+                  <option value="">Seleccione un país</option>
+                  {countryNames.map((pais) => (
+                    <option key={pais} value={pais}>
+                      {pais}
+                    </option>
+                  ))}
+                </Form.Control>
+                <Form.Control.Feedback type="invalid">
+                  {errors.pais}
+                </Form.Control.Feedback>
               </Form.Group>
             </Col>
           </Row>
@@ -161,12 +178,16 @@ export const FormContact = () => {
                   as="select"
                   value={formData.plan}
                   onChange={handleChange}
+                  isInvalid={!!errors.plan}
                 >
                   <option value="">Seleccione un plan</option>
                   <option>Conociendo a la Luna</option>
                   <option>Vuelta a la Luna</option>
                   <option>Super Espacial</option>
                 </Form.Control>
+                <Form.Control.Feedback type="invalid">
+                  {errors.plan}
+                </Form.Control.Feedback>
               </Form.Group>
             </Col>
           </Row>
