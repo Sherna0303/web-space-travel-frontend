@@ -9,8 +9,12 @@ export const SaveRequestService = (data: RequestModel): Boolean => {
 
     let count = requests.length
 
+    console.log(count)
+
     requests.push(data);
     storageService.set("requests", requests);
 
-    return count > requests.length
+    console.log(requests.length)
+
+    return requests.length > count
 }
