@@ -1,0 +1,91 @@
+.login-container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    background-color: rgba(17, 17, 17, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title-login {
+    margin-bottom: 20px;
+}
+
+.input-space {
+    background-color: #111;
+    color: white;
+    border: 1px solid #555;
+    transition: all 0.3s;
+}
+
+.input-space::-ms-reveal {
+    filter: invert(100%);
+}
+
+.input-space::placeholder {
+    color: rgba(255, 255, 255, 0.404);
+}
+
+.input-space:focus {
+    background-color: #222;
+    color: rgba(255, 255, 255, 0.788);
+    border-color: rgba(255, 255, 255, 0.781);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.322);
+}
+
+.btn-cohete {
+    background-color: #1a1a1a;
+    color: white;
+    border: 1px solid white;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-cohete:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.04);
+}
+
+.btn-cohete:active {
+    background-color: #ffffff !important;
+    transform: scale(1);
+}
+
+.home-link {
+    color: #00bfff;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.home-link:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.error-text {
+    margin-top: 10px;
+    margin-bottom: 0px !important;
+}

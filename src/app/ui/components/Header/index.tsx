@@ -34,6 +34,11 @@ const Header: React.FC = () => {
                   Contacto
                 </Link>
               </Nav.Item>
+              <Nav.Item>
+                <Link to="/admin" className="nav-link admin-link">
+                  Administración	
+                </Link>
+              </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Container>

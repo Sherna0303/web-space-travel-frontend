@@ -1,5 +1,6 @@
 import { Card, Container, Row, Col } from "react-bootstrap";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 interface Trip {
   title: string;
@@ -56,9 +57,12 @@ const CardCatalog = () => {
                   </Card.Text>
                   <div className="d-flex justify-content-between align-items-center">
                     <span className="fw-bold fs-5">{trip.price}</span>
-                    <button className="btn btn-outline-light btn-book">
+                    <Link
+                      to="/contact"
+                      className="btn btn-outline-light btn-book"
+                    >
                       Reservar
-                    </button>
+                    </Link>
                   </div>
                 </Card.Body>
               </Card>
