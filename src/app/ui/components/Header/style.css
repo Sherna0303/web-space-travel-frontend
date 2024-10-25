@@ -37,4 +37,9 @@
     .admin-link {
         background-color: transparent;
     }
+
+    .admin-link:hover {
+        background-color: transparent;
+        color: #78aeff;
+    }
 }

@@ -1,6 +1,7 @@
 .requests-section {
     background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
-    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
     padding-top: 50px;
     color: #e0e0e0;
 }
@@ -138,4 +139,50 @@
 
 .hidden-search {
     display: none;
+}
+
+.pagination .page-item {
+    margin: 0 5px;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #1f1f1f;
+    border-color: #fff;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.pagination .page-link {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    border-radius: 50% !important;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.pagination .page-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.pagination .page-link:disabled {
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+}
+
+.pagination .page-item:first-child .page-link::before {
+    content: "«";
+}
+
+.pagination .page-item:last-child .page-link::after {
+    content: "»";
 }
