@@ -85,7 +85,7 @@ export const FormContact = () => {
 
       setTimeout(() => {
         setSuccessMessage(null);
-      }, 4000);
+      }, 3000);
     } else {
       setErrors({ general: "¡Error al enviar formulario!" });
     }
