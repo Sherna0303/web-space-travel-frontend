@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Table, Modal, Form, Row, Col } from "react-bootstrap";
+import { Table, Modal, Form, Row, Col, Pagination } from "react-bootstrap";
 import { RequestModel } from "../../../core/models/requests.model";
 import { SidebarAdmin } from "../SidebarAdmin";
 import { GetRequestsService } from "../../../core/services/getRequests.service";
@@ -23,6 +23,9 @@ export const Requests = () => {
   const [filteredRequests, setFilteredRequests] =
     useState<RequestModel[]>(requests);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 1;
+
   useEffect(() => {
     setRequests(GetRequestsService());
   }, []);
@@ -33,40 +36,47 @@ export const Requests = () => {
 
   const handleDelete = () => {
     if (deleteIndex !== null) {
-      const updatedRequests = requests.filter((_, i) => i !== deleteIndex);
+      const updatedRequests = requests.filter(
+        (request) => request.id !== deleteIndex,
+      );
       setRequests(updatedRequests);
       setFilteredRequests(updatedRequests);
       saveToLocalStorage(updatedRequests);
       setShowConfirmModal(false);
+      handlePageChange(currentPage !== 0 ? currentPage - 1 : 1);
     }
   };
 
-  const confirmDelete = (index: number) => {
-    setDeleteIndex(index);
+  const confirmDelete = (id: number) => {
+    setDeleteIndex(id);
     setShowConfirmModal(true);
   };
 
-  const handleEdit = (index: number) => {
-    setCurrentRequest(filteredRequests[index]);
-    setEditedData(filteredRequests[index]);
-    setShowModal(true);
-  };
-
-  const handleModalChange = (e: React.ChangeEvent<HTMLElement>) => {
-    const { id, value } = e.target as HTMLInputElement | HTMLSelectElement;
-    if (editedData) {
-      setEditedData({ ...editedData, [id]: value });
+  const handleEdit = (id: number) => {
+    const requestToEdit = requests.find((request) => request.id === id);
+    if (requestToEdit) {
+      setCurrentRequest(requestToEdit);
+      setEditedData(requestToEdit);
+      setShowModal(true);
     }
   };
 
   const handleSaveChanges = () => {
     if (editedData && currentRequest) {
       const updatedRequests = requests.map((request) =>
-        request === currentRequest ? editedData : request,
+        request.id === currentRequest.id ? editedData : request,
       );
       setRequests(updatedRequests);
+      setFilteredRequests(updatedRequests);
       saveToLocalStorage(updatedRequests);
       setShowModal(false);
+    }
+  };
+
+  const handleModalChange = (e: React.ChangeEvent<HTMLElement>) => {
+    const { id, value } = e.target as HTMLInputElement | HTMLSelectElement;
+    if (editedData) {
+      setEditedData({ ...editedData, [id]: value });
     }
   };
 
@@ -88,6 +98,18 @@ export const Requests = () => {
     setShowMessageModal(true);
   };
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredRequests.slice(
+    indexOfFirstItem,
+    indexOfLastItem,
+  );
+  const totalPages = Math.ceil(filteredRequests.length / itemsPerPage);
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <>
       <section className="requests-section py-5 ">
@@ -100,67 +122,93 @@ export const Requests = () => {
             <input
               type="text"
               placeholder="Buscar por nombre o email"
-              className={`form-search ${search ? "" : "hidden-search"}`}
+              className={`form-search ${!search || requests.length === 0 ? "hidden-search" : ""}`}
               value={searchTerm}
               onChange={handleSearchChange}
             />
-            <div
-              className="button-search"
-              onClick={() => setSearch(!search)}
-            >
+            <div className={`button-search ${currentItems.length !== 0 ? "" : "hidden-search"}`}onClick={() => setSearch(!search)}>
               <Icon size={30} color={"#ffff"} icon={"search"} />
             </div>
           </div>
 
-          {filteredRequests.length === 0 ? (
-            <p className="text-center">No hay solicitudes registradas.</p>
+          {currentItems.length === 0 ? (
+            <p className="text-center my-5">No hay solicitudes registradas.</p>
           ) : (
-            <Table bordered hover variant="dark" responsive>
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Email</th>
-                  <th>Teléfono</th>
-                  <th>País</th>
-                  <th>Plan</th>
-                  <th>Mensaje</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredRequests.map((request, index) => (
-                  <tr key={index}>
-                    <td>{request.nombre}</td>
-                    <td>{request.email}</td>
-                    <td>{request.telefono}</td>
-                    <td>{request.pais}</td>
-                    <td>{request.plan}</td>
-                    <td>
-                      <a
-                        className="link-message"
-                        onClick={() => handleShowMessage(request.mensaje)}
-                      >
-                        Ver Mensaje
-                      </a>
-                    </td>
-                    <td>
-                      <button
-                        onClick={() => handleEdit(index)}
-                        className="me-2 btn btn-outline-light btn-sm"
-                      >
-                        Editar
-                      </button>
-                      <button
-                        className="btn btn-danger btn-sm"
-                        onClick={() => confirmDelete(index)}
-                      >
-                        Eliminar
-                      </button>
-                    </td>
+            <>
+              <Table bordered hover variant="dark" responsive>
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>País</th>
+                    <th>Plan</th>
+                    <th>Mensaje</th>
+                    <th>Acciones</th>
                   </tr>
+                </thead>
+                <tbody>
+                  {currentItems.map((request) => (
+                    <tr key={request.id}>
+                      <td>{request.nombre}</td>
+                      <td>{request.email}</td>
+                      <td>{request.telefono}</td>
+                      <td>{request.pais}</td>
+                      <td>{request.plan}</td>
+                      <td>
+                        <a
+                          className="link-message"
+                          onClick={() => handleShowMessage(request.mensaje)}
+                        >
+                          Ver Mensaje
+                        </a>
+                      </td>
+                      <td>
+                        <button
+                          onClick={() => handleEdit(request.id)}
+                          className="me-2 btn btn-outline-light btn-sm"
+                        >
+                          Editar
+                        </button>
+                        <button
+                          className="btn btn-danger btn-sm"
+                          onClick={() => confirmDelete(request.id)}
+                        >
+                          Eliminar
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+              <Pagination className="justify-content-center">
+                <Pagination.First
+                  onClick={() => handlePageChange(1)}
+                  disabled={currentPage === 1}
+                />
+                <Pagination.Prev
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                />
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <Pagination.Item
+                    key={index + 1}
+                    active={index + 1 === currentPage}
+                    onClick={() => handlePageChange(index + 1)}
+                  >
+                    {index + 1}
+                  </Pagination.Item>
                 ))}
-              </tbody>
-            </Table>
+                <Pagination.Next
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                />
+                <Pagination.Last
+                  onClick={() => handlePageChange(totalPages)}
+                  disabled={currentPage === totalPages}
+                />
+              </Pagination>
+            </>
           )}
 
           <Modal

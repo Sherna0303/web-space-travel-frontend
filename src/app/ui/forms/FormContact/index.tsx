@@ -3,9 +3,11 @@ import { Form, Col, Row } from "react-bootstrap";
 import "./style.css";
 import { RequestModel } from "../../../core/models/requests.model";
 import { SaveRequestService } from "../../../core/services/saveRequest.service";
+import { GetRequestsService } from "../../../core/services/getRequests.service";
 
 export const FormContact = () => {
   const [formData, setFormData] = useState<RequestModel>({
+    id: 0,
     nombre: "",
     email: "",
     telefono: "",
@@ -27,6 +29,16 @@ export const FormContact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    var numID = GetRequestsService().length + 1;
+
+    if (
+      GetRequestsService().find((request) => request.id === numID)
+    ) {
+      numID++;
+    }
+
+    formData.id = numID;
+
     if (Object.values(formData).some((value) => value === "")) {
       alert("Por favor, completa todos los campos.");
       return;
@@ -41,6 +53,7 @@ export const FormContact = () => {
     }
 
     setFormData({
+      id: 0,
       nombre: "",
       email: "",
       telefono: "",
